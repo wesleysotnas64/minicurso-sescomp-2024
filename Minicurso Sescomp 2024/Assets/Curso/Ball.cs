@@ -52,13 +52,17 @@ public class Ball : MonoBehaviour
 
         
 
-        if(Input.GetKeyDown(KeyCode.Space)) InitBall();
+        if(Input.GetKeyDown(KeyCode.Space) && isActive == false) InitBall();
     }
 
     public void Point()
     {
         isActive = false;
         direction = Vector2.zero;
+
+        if(transform.position.x > 0) GameObject.Find("GameController").GetComponent<GameController>().PointPlayer1();
+        if(transform.position.x < 0) GameObject.Find("GameController").GetComponent<GameController>().PointPlayer2();
+
         transform.position = new Vector3(0, -0.5f, 0);
     }
 
@@ -77,7 +81,7 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("OnCollisionEnter2D");
+        // Debug.Log("OnCollisionEnter2D");
         string tag = col.gameObject.tag;
 
         if(tag == "Wall")
