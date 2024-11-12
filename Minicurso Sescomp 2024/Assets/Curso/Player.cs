@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey(upKey) && transform.position.y < 2.25f) transform.Translate(0, speed*Time.deltaTime, 0);
-        if(Input.GetKey(downKey) && transform.position.y > -3.25f) transform.Translate(0, -speed*Time.deltaTime, 0);
+        if(Input.GetKey(upKey) && transform.position.y < 1.4f) transform.Translate(0, speed*Time.deltaTime, 0);
+        if(Input.GetKey(downKey) && transform.position.y > -3.75f) transform.Translate(0, -speed*Time.deltaTime, 0);
     }
 }
